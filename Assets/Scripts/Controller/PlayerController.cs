@@ -6,7 +6,6 @@ public class PlayerController : BaseController
 {
     private Camera camera_;
     private bool isJumping = false;
-    private float jumpHeight = 0.5f; // 점프 높이
     private float jumpDuration = 0.5f; // 점프 지속 시간
     private float jumpTimer = 0f;
     private float originalScale; // 기본 크기 저장
