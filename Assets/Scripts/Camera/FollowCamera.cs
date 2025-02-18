@@ -1,36 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    public Transform targetTrans; // µû¶ó°¥ ´ë»ó
-    public Vector2 minLimit; // Ä«¸Ş¶ó ÀÌµ¿ ÃÖ¼Ò ÁÂÇ¥ (¿ŞÂÊ ¾Æ·¡)
-    public Vector2 maxLimit; // Ä«¸Ş¶ó ÀÌµ¿ ÃÖ´ë ÁÂÇ¥ (¿À¸¥ÂÊ À§)
+    public Transform target;
+    float offsetX;
 
-    private float offsetX;
-    private float offsetY;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        if (targetTrans == null) return;  // ´ë»óÀÌ ¾øÀ¸¸é ½ÇÇàÇÏÁö ¾ÊÀ½
-
-        // ÃÊ±â ¿ÀÇÁ¼Â ÀúÀå
-        offsetX = transform.position.x - targetTrans.position.x;
-        offsetY = transform.position.y - targetTrans.position.y;
+        if (target == null)
+            return;
+        // ì¹´ë©”ë¼ì™€ í”Œë ˆì´ì–´ ì‚¬ì´ì˜ ê±°ë¦¬ë¥¼ ì €ì¥
+        offsetX = transform.position.x - target.position.x;
     }
 
-    private void LateUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        if (targetTrans == null) return;
+        if(target == null)
+            return;
+        // transform.position ë°”ë¡œ ë³€ë™ì´ ê°€ëŠ¥í•œ ê°’ì´ ì•„ë‹ˆë‹¤.
+        Vector3 pos = transform.position;
+        pos.x = target.position.x + offsetX;
+        transform.position = pos;
 
-        // ¸ñÇ¥ À§Ä¡ °è»ê
-        float targetX = targetTrans.position.x + offsetX;
-        float targetY = targetTrans.position.y + offsetY;
-
-        // Ä«¸Ş¶ó ÀÌµ¿À» ÃÖ¼Ò/ÃÖ´ë ¿µ¿ª ³»·Î Á¦ÇÑ
-        float clampedX = Mathf.Clamp(targetX, minLimit.x, maxLimit.x);
-        float clampedY = Mathf.Clamp(targetY, minLimit.y, maxLimit.y);
-
-        // ÃÖÁ¾ À§Ä¡ Àû¿ë
-        transform.position = new Vector3(clampedX, clampedY, transform.position.z);
     }
 }
