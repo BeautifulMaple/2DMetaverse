@@ -13,6 +13,7 @@ public class ScoreUI : BaseUI
     Button startButton;
     Button exitButton;
 
+
     public override void Init(StackUIManager uiManager)
     {
         base.Init(uiManager);

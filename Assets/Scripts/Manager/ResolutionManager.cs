@@ -1,47 +1,52 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ResolutionManager : MonoBehaviour
 {
-    void Start()
+    private static ResolutionManager instance;
+
+    private void Awake()
     {
-        SetResolutionForCurrentScene();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // 씬 변경 시 유지
+            SceneManager.sceneLoaded += OnSceneLoaded; // 씬 변경 이벤트 등록
+            StartCoroutine(ChangeResolutionForCurrentScene()); // 첫 씬 해상도 설정
+        }
+        else
+        {
+            Destroy(gameObject); // 중복 방지
+        }
     }
 
     private void OnDestroy()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SetResolutionForCurrentScene();
+        StartCoroutine(ChangeResolutionForCurrentScene()); // 씬 변경 후 해상도 적용
     }
 
-    private void SetResolutionForCurrentScene()
+    private IEnumerator ChangeResolutionForCurrentScene()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
+        yield return new WaitForSeconds(0.2f); // 잠깐 대기 후 적용
 
+        string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "TheStack")
         {
-            SetPortraitMode();
+            Screen.SetResolution(720, 1280, false);
         }
-        else
+        else if (sceneName == "FlappyPlane" || sceneName == "SampleScene")
         {
-            SetLandscapeMode();
+            Screen.SetResolution(1920, 1080, false);
         }
-    }
 
-    private void SetLandscapeMode()
-    {
-        Screen.orientation = ScreenOrientation.Landscape;
-        Screen.SetResolution(1920, 1080, true);
-    }
-
-    private void SetPortraitMode()
-    {
-        Screen.orientation = ScreenOrientation.Portrait;
-        Screen.SetResolution(1080, 1920, true);
     }
 }

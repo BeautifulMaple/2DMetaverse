@@ -7879,7 +7879,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1329237997}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1216956389}
+        m_TargetAssemblyTypeName: StackUIManager, Assembly-CSharp
+        m_MethodName: OnClickResetScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1329237997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8485,9 +8497,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1057601297}
-  - {fileID: 1140808647}
   - {fileID: 772248786}
   - {fileID: 1845908162}
+  - {fileID: 1140808647}
   - {fileID: 507270856}
   m_Father: {fileID: 21677623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8901,6 +8913,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845908161}
   m_CullTransparentMesh: 1
+--- !u!1 &1950487602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1950487603}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1950487603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950487602}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 540, y: 897.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1957540103
 GameObject:
   m_ObjectHideFlags: 0
@@ -9096,3 +9139,4 @@ SceneRoots:
   - {fileID: 2130292222}
   - {fileID: 1216956388}
   - {fileID: 863669459}
+  - {fileID: 1950487603}

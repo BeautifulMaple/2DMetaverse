@@ -72,7 +72,13 @@ public class StackUIManager : MonoBehaviour
 
     public void SetScoreUI()
     {
-        scoreUI.SetUI(theStack.Score, theStack.MaxCombo, theStack.BestScore, theStack.BestScore);
+        scoreUI.SetUI(theStack.Score, theStack.MaxCombo, theStack.BestScore, theStack.BestCombo);
         ChangeState(UIState.Score);
     }
+
+    //public void OnClickResetScore()
+    //{
+    //    theStack.ResetBestScore();
+    //    Debug.Log("점수 초기화 버튼이 눌렸습니다.");
+    //}
 }

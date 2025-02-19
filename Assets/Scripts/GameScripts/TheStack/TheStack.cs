@@ -361,4 +361,18 @@ public class TheStack : MonoBehaviour
         Spawn_Block();
         Spawn_Block();
     }
+
+    //public void ResetBestScore()
+    //{
+    //    PlayerPrefs.DeleteKey(BestScoreKey);
+    //    PlayerPrefs.DeleteKey(BestComboKey);
+    //    PlayerPrefs.Save();
+
+    //    bestScore = 0;
+    //    bestCombo = 0;
+
+    //    Debug.Log("최고 점수와 최고 콤보가 초기화되었습니다.");
+    //}
+
+
 }
