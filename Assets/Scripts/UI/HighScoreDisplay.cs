@@ -10,9 +10,6 @@ public class HighScoreDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log($"Score Texts Count: {scoreTexts.Count}");
-        Debug.Log($"Game Keys Count: {gameKeys.Count}");
-
         if (scoreTexts.Count != gameKeys.Count)
         {
             Debug.LogError("scoreTexts와 gameKeys의 개수가 일치하지 않습니다!");

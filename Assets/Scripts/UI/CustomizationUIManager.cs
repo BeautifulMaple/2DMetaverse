@@ -18,16 +18,16 @@ public class CustomizationUIManager : MonoBehaviour
 
     }
 
-    private void ShowExeriorPenel()
-    {
-        colorPanel.SetActive(true);
-        exteriorPanel.SetActive(false);
-    }
-
     private void ShowColorPenel()
     {
-        colorPanel.SetActive(false);
-        exteriorPanel.SetActive(true);
+        colorPanel.SetActive(true);  // 색상 패널 활성화
+        exteriorPanel.SetActive(false);  // 외형 패널 비활성화
+    }
+
+    private void ShowExeriorPenel()
+    {
+        colorPanel.SetActive(false);  // 색상 패널 비활성화
+        exteriorPanel.SetActive(true);  // 외형 패널 활성화
     }
 
 }
