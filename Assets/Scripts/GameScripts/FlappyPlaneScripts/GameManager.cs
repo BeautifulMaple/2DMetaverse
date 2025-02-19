@@ -20,12 +20,20 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+
         uiManager.UpadteScore(0);
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over");
+        int highScore = PlayerPrefs.GetInt("FlappyPlane_HighScore", 0); // 최고 점수
+        if(currenScore > highScore)
+        {
+            PlayerPrefs.SetInt("FlappyPlane_HighScore", currenScore);
+            PlayerPrefs.Save();
+        }
+
         uiManager.SetRestart();
     }
 

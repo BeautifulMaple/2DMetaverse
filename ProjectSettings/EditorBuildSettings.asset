@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FlappyPlane.unity
     guid: 22a264233efbd0b4c93d5ed040e1aeb8
+  - enabled: 1
+    path: Assets/Scenes/TheStack.unity
+    guid: d7e0302d557a8ba4ebfbb697fb880347
   m_configObjects: {}
