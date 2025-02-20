@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using Unity.VisualScripting;
 
 public class SceneChang : MonoBehaviour
 {
-    [SerializeField] private GameObject NpcUI;       // UI 패널
-    [SerializeField] private TMP_Text NpcUIText;     // TextMeshPro UI 텍스트
-    [SerializeField] private GameObject interactionText; // G키를 눌러 상호작용
-    [SerializeField] private string gameSceneName = "";  // 이동할 게임 씬
-    private bool isPlayerNearby = false;            // 플레이어가 주변에 있는지
+    [Header("UI 요소")]
+    [SerializeField] private GameObject NpcUI;          // 상호작용 UI 패널
+    [SerializeField] private TMP_Text NpcUIText;        // 대화 UI 텍스트
+    [SerializeField] private GameObject interactionText; // "G를 눌러 상호작용" UI
+    [SerializeField] private string gameSceneName = ""; // 이동할 게임 씬
+    private bool isPlayerNearby = false;               // 플레이어가 NPC 근처에 있는지 여부
 
     void Start()
     {
@@ -19,25 +17,24 @@ public class SceneChang : MonoBehaviour
             NpcUI.SetActive(false); // 초기 UI 비활성
 
         if (interactionText != null)
-            interactionText.SetActive(false);
-
+            interactionText.SetActive(false); // "G를 눌러 상호작용" 문구 숨김
     }
 
     void Update()
     {
-        // 플레이어가 근처에 있고, G 키를 누르면 상호작용 UI 표시
+        // 플레이어가 근처에 있고, G 키를 누르면 UI 표시
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.G))
         {
             Debug.Log("G키 입력 감지됨!");
             if (NpcUIText != null)
             {
-                NpcUIText.text = $"\"Do you want to go to the\n {gameSceneName}\" game?";
+                NpcUIText.text = $"\"Do you want to go to the {gameSceneName} game?\"";
             }
-            NpcUI.SetActive(true);
+            NpcUI.SetActive(true); // Panel 활성화
+            interactionText.SetActive(false); // "G 키" 문구 비활성화
         }
     }
 
-    // "네" 버튼 클릭 시 게임 씬으로 이동
     public void OnYesButton()
     {
         if (!string.IsNullOrEmpty(gameSceneName))
@@ -46,10 +43,13 @@ public class SceneChang : MonoBehaviour
         }
     }
 
-    // "아니요" 버튼 클릭 시 UI 닫기
     public void OnNoButton()
     {
-        NpcUI.SetActive(false);
+        NpcUI.SetActive(false); // Panel 닫기
+        if (isPlayerNearby && interactionText != null)
+        {
+            interactionText.SetActive(true); // "G 키" 문구 다시 활성화
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,8 +59,8 @@ public class SceneChang : MonoBehaviour
             isPlayerNearby = true;
             if (interactionText != null)
             {
-                interactionText.SetActive(true);
-            }    
+                interactionText.SetActive(true); // "G를 눌러 상호작용" 문구 표시
+            }
         }
     }
 
@@ -69,10 +69,10 @@ public class SceneChang : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = false;
-            NpcUI.SetActive(false); // 범위를 벗어나면 UI도 숨김
-            if(interactionText != null)
+            NpcUI.SetActive(false); // UI 닫기
+            if (interactionText != null)
             {
-                interactionText.SetActive(false);
+                interactionText.SetActive(false); // "G 키" 문구 숨기기
             }
         }
     }
