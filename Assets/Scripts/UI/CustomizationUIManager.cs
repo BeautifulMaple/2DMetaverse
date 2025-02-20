@@ -23,6 +23,7 @@ public class CustomizationUIManager : MonoBehaviour
         colorPanel.SetActive(true);  // 색상 패널 활성화
         exteriorPanel.SetActive(false);  // 외형 패널 비활성화
     }
+    
 
     private void ShowExeriorPenel()
     {

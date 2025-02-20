@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6a1e33950b1d749a7776e46654ef61, type: 3}
+  m_Name: Maria
+  m_EditorClassIdentifier: 
+  characterName: Maria
+  characterSprite: {fileID: 735161281, guid: af653c7e13cf60446a76203560d9a015, type: 3}
+  characterAnimator: {fileID: 22100000, guid: a58a0b57078fe8f4b8bcda8d5e454a4c, type: 2}

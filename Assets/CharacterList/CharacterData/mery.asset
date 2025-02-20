@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6a1e33950b1d749a7776e46654ef61, type: 3}
+  m_Name: mery
+  m_EditorClassIdentifier: 
+  characterName: mery
+  characterSprite: {fileID: 1147101983, guid: b80f8168a2884974b9ff44c40e71016c, type: 3}
+  characterAnimator: {fileID: 22100000, guid: 7421bc7c70df607409c43bb432e79625, type: 2}

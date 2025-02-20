@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6a1e33950b1d749a7776e46654ef61, type: 3}
+  m_Name: Bron
+  m_EditorClassIdentifier: 
+  characterName: Bron
+  characterSprite: {fileID: -1881887379, guid: 275d6f85c84533f4e8360c9f3651f803, type: 3}
+  characterAnimator: {fileID: 22100000, guid: cee40de88ae72ad44a22b6dee8f0b66b, type: 2}
