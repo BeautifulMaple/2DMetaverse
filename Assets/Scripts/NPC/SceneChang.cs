@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 public class SceneChang : MonoBehaviour
 {
     [SerializeField] private GameObject NpcUI;       // UI 패널
     [SerializeField] private TMP_Text NpcUIText;     // TextMeshPro UI 텍스트
+    [SerializeField] private GameObject interactionText; // G키를 눌러 상호작용
     [SerializeField] private string gameSceneName = "";  // 이동할 게임 씬
     private bool isPlayerNearby = false;            // 플레이어가 주변에 있는지
 
@@ -15,6 +17,10 @@ public class SceneChang : MonoBehaviour
     {
         if (NpcUI != null)
             NpcUI.SetActive(false); // 초기 UI 비활성
+
+        if (interactionText != null)
+            interactionText.SetActive(false);
+
     }
 
     void Update()
@@ -51,6 +57,10 @@ public class SceneChang : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = true;
+            if (interactionText != null)
+            {
+                interactionText.SetActive(true);
+            }    
         }
     }
 
@@ -60,6 +70,10 @@ public class SceneChang : MonoBehaviour
         {
             isPlayerNearby = false;
             NpcUI.SetActive(false); // 범위를 벗어나면 UI도 숨김
+            if(interactionText != null)
+            {
+                interactionText.SetActive(false);
+            }
         }
     }
 }
